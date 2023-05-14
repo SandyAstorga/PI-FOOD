@@ -21,7 +21,7 @@ const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => { 
+conn.sync({ force: false }).then(() => { 
   // Si esta en true se crea en la db cada vez que se levanta el servidor
   // Si esta en false se crea una sola vez y se queda guardado
   server.listen(3001, () => {
