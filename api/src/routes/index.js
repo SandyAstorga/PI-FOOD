@@ -18,7 +18,7 @@ router.get('/diets', getTypeDiets);
 //GET Ruta para el llamado por ID
 router.get('/recipes/:idRecipe', getRecipebyId); 
 
-//POST Ruta para crear una receta nueva en mi base de datos //REVISAR
+//POST Ruta para crear una receta nueva en mi base de datos 
 router.post('/recipes', postRecipe);
 
 module.exports = router;

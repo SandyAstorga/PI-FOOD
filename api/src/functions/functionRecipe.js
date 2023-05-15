@@ -29,7 +29,7 @@ const getRecipes = async (req, res) => {  //Funcion asincrona
     }
 }
 
-//Funcion para Crear una Receta //REVISAR
+//Funcion para Crear una Receta 
 const postRecipe = async (req, res) => {
     try{
     const { name, image, summary, healthScore, diets, steps, createdInDb} = req.body
@@ -48,7 +48,7 @@ const postRecipe = async (req, res) => {
         recipeCreated.addDiets(dietsDB) //Con esto a la receta creada se le van a añadir los tipos de dietas de la base de datos Diets 
         res.status(200).send('Receta creada con exito')
     } catch {
-        res.status(500).send('Ha ocurrido un error al intentar crear receta')
+        res.status(500).send('Hubo un error al intentar crear receta')
     }
 }
 

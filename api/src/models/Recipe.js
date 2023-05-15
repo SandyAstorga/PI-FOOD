@@ -30,9 +30,9 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     steps: { //Array de objetos //"steps": [{"number": 1,"step": "Rinse the cannellini..", "ingredients": [{ "id": 10716050,"name": "cannellini beans", }, {"id": 14412, "name": "water"}]...
-      type: DataTypes.ARRAY(DataTypes.TEXT),
+      // type: DataTypes.ARRAY(DataTypes.TEXT),
       //Especifica que el tipo de dato de esta columna será un array de valores de tipo texto. "DataTypes.ARRAY" indica que es un array y "DataTypes.TEXT" indica que el tipo de cada valor en el array será de tipo texto.
-      // type: DataTypes.ARRAY(DataTypes.JSONB),
+      type: DataTypes.ARRAY(DataTypes.JSONB),
       //Si los datos son muy estructurados y siguen un formato fijo, como en una receta culinaria con pasos específicos y listas de ingredientes, puede ser más útil utilizar un modelo que incluya objetos JSONB para poder acceder a cada propiedad de los objetos.
       allowNull: false
     },

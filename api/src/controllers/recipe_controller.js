@@ -10,7 +10,7 @@ const { API_KEY } = process.env; //Me traigo mi API_KEY del archivo .env
 
 //Aqui estoy llamando a la API 
 const getSpoonApi = async ()  => { //función flecha asincrónica
-    const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=2&addRecipeInformation=true&apiKey=${API_KEY}`) 
+    const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=15&addRecipeInformation=true&apiKey=${API_KEY}`) 
     //Aqui va mi llamado a la api (100 recetas) incluye mi api_key
     const apiInfo = await apiUrl.data.results.map(el => {
     //En esta contante hago un mapeo solo de la data que necesito de la API
