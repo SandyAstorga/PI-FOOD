@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux'; //Provider proporciona la conexión entre React y Redux,
+import store from './redux/store' //Store es el objeto que contiene todo el estado de la aplicación.
+import { BrowserRouter} from 'react-router-dom';
+//BrowserRouter es un componente de React Router que permite al desarrollador 
+// crear una aplicación de una sola página (SPA) con múltiples rutas 
+// y transiciones suaves entre las diferentes vistas, todo esto en el contexto del navegador web.
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}> 
+  {/* Importante el provider*/}
+  <BrowserRouter>
+  <React.StrictMode> 
+    {/* Sola pagina con multiples rutas */}
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
