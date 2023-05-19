@@ -10,7 +10,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 //GET Ruta para el llamado de las recetas de la API y de la DB para buscar por name
-router.get('/recipes', getRecipes); 
+router.get('/recipes', getRecipes); //Por name 'recipes?name='''
 
 //GET Ruta para el llamado de los tipos de dieta de la API y de la DB para buscar por name
 router.get('/diets', getTypeDiets); 
