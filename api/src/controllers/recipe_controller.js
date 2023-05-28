@@ -10,7 +10,7 @@ const { API_KEY } = process.env; //Me traigo mi API_KEY del archivo .env
 
 //Aqui estoy llamando a la API 
 const getSpoonApi = async ()  => { //función flecha asincrónica
-    const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=100&addRecipeInformation=true&apiKey=${API_KEY}`) 
+    const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=15&addRecipeInformation=true&apiKey=${API_KEY}`) 
     //Aqui va mi llamado a la api (100 recetas) incluye mi api_key
     const apiInfo = await apiUrl.data.results.map(el => {
     //En esta contante hago un mapeo solo de la data que necesito de la API
@@ -37,7 +37,7 @@ const getSpoonApi = async ()  => { //función flecha asincrónica
 
 //Llamada a la base de datos 
 const getDBFood = async () => {
-    const dataDB = await Recipe.findAll({ //Trae la info de la base de datos del modelo Recipe
+    const dataDB = (await Recipe.findAll({ //Trae la info de la base de datos del modelo Recipe
         //findAll() es un metodo de Sequelize 
         include:{
             model:Diets, //Incluyendo el modelo Diets
@@ -47,8 +47,14 @@ const getDBFood = async () => {
         //Traer el modelo mendiante el name
             },
         }
-    })
-    return dataDB; //retornamos 
+    })).map(food => { ///importante
+        const json = food.toJSON();
+        return {
+            ...json,
+            diets: json.diets.map(diet => diet.name)
+        }
+    });
+    return dataDB;
 }
 
 //Concatenamos los datos de la API y la Base de Datos para poder visualizarlos todos  
