@@ -1,0 +1,130 @@
+.loading_image {
+    width: 20%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 9px;
+    padding: 15%;
+}
+
+.recipe_card__image {
+    width: 240px;
+    height: 230px;
+    border-radius: 5px;
+    background: -webkit-linear-gradient(150deg,
+            #643843,
+            #99627A,
+            #C88EA7);
+    box-shadow: 10px 10px 20px rgb(231, 203, 203);
+    padding: 20px 20px;
+    margin-left: -50%;
+}
+
+.summ_steps {
+    margin-top: -32%;
+    margin-left: 45%;
+    width: 50%;
+    text-align: justify;
+
+}
+
+.score_diets {
+    margin-top: 2%;
+    margin-left: -55%;
+    font-size: small;
+}
+
+.texts {
+    font-size: small;
+}
+
+.back{
+    margin-right: 100%;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    .loading_image {
+        width: 50%;
+        padding: 25%;
+    }
+
+    .recipe_card__image {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+
+    .summ_steps {
+        margin-top: -10%;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .score_diets {
+        margin-top: 2%;
+        margin-left: 0;
+        font-size: smaller;
+    }
+
+    .texts {
+        font-size: smaller;
+    }
+}
+
+/* Media query para tabletas */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .loading_image {
+        width: 30%;
+        padding: 20%;
+    }
+
+    .recipe_card__image {
+        width: 200px;
+        height: 190px;
+    }
+
+    .summ_steps {
+        margin-top: -25%;
+        margin-left: 40%;
+        width: 60%;
+    }
+
+    .score_diets {
+        margin-top: 2%;
+        margin-left: -50%;
+        font-size: small;
+    }
+
+    .texts {
+        font-size: small;
+    }
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 1025px) {
+    .loading_image {
+        width: 20%;
+        padding: 15%;
+    }
+
+    .recipe_card__image {
+        width: 240px;
+        height: 230px;
+    }
+
+    .summ_steps {
+        margin-top: -32%;
+        margin-left: 45%;
+        width: 50%;
+    }
+
+    .score_diets {
+        margin-top: 2%;
+        margin-left: -55%;
+        font-size: small;
+    }
+
+    .texts {
+        font-size: small;
+    }
+}

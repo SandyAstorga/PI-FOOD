@@ -7,7 +7,7 @@ const Landing = () => {
     return (
         <div className={style.landing_container}>
         <Link to='/home'>
-        <button className={style.ba}>
+        <button className={style.button}>
             <span>Bon Appétit</span>
         </button>
         </Link>

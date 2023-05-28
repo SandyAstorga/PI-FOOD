@@ -1,5 +1,5 @@
 .landing_container {
-    background-image: url(../../img/food2.jpg);
+    background-image: url("https://cdn.vectorstock.com/i/1000x1000/04/35/cooking-utensils-seamless-pattern-wallpaper-vector-46180435.webp");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -7,8 +7,8 @@
     height: 100vh;
 }
 
-.ba {
-    margin-top: 280px;
+.button {
+    margin-top: 300px;
     margin-right: 50px;
     cursor: pointer;
     outline: none;
@@ -23,17 +23,33 @@
     box-shadow: 0 0 0 4px #232423 inset;
 }
 
-.ba:hover {
-    background-image: linear-gradient(55deg,
-            transparent 10%,
-            #161616 10% 20%,
-            transparent 20% 30%,
-            #161616 30% 40%,
-            transparent 40% 50%,
-            #161616 50% 60%,
-            transparent 60% 70%,
-            #161616 70% 80%,
-            transparent 80% 90%,
-            #161616 90% 100%);
-    animation: background 3s linear infinite;
+/* Media query para dispositivos móviles */
+@media (max-width: 768px)  {
+    .landing_container {
+        height: auto;
+    }
+
+    .button {
+        margin-top: 50px;
+        margin-right: 20px;
+        font-size: 1rem;
+    }
+}
+
+/* Media query para tabletas */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .button {
+        margin-top: 200px;
+        margin-right: 30px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 1025px) {
+    .button {
+        margin-top: 300px;
+        margin-right: 50px;
+        font-size: 1.3rem;
+    }
 }

@@ -27,18 +27,23 @@ export default function Paginado({ recipesPerPage, allRecipes, page, setCurrentP
     return (
         // Vamos a retornar en un div 
         <div>
-
             <ul className='paginado' >
                 {currentPage !== 1 && (
                     <button onClick={handlePrevClick}>⏪</button>
                 )}
                 {pageNumbers &&
                     // si existe el numero de paginas se ejecuta el metodo map 
-                    pageNumbers.map(number => {
+                    pageNumbers.map((number,index) => {
                         return (
                             // donde cada numero va a ser un boton que tendra un evennto on click
                             // donde se renderizara con la funcion paginado(en home) con el numero de pagina actual 
-                            <button onClick={() => page(number)}>
+                            <button key={index}
+                            onClick={() => page(number)}
+                            //     className={`button__paginado 
+                            //     ${page === currentPage ? 'b__active' : 'button__paginado' }`}
+                            //     key={page}
+                            //     onClick={() => page(number)}
+                            >
                                 <span>{number}</span>
                             </button>
                         )

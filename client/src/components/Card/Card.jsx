@@ -1,26 +1,22 @@
-//Aqui es donde hacemos el componente Card que tendra los 3 props que va a mostrar
 import React from 'react';
 import { Link } from 'react-router-dom';
+import style from "./Card.module.css"
 
-const Card = ({name, diets, image, id}) => { //destructuring
+const Card = ({ name, diets, image, id, healthScore }) => {
+
     return (
-        <div >
-            <br />
-            <p>{name}</p>
-            <br />
-            <img src={image} alt={name} />
-            <br />
-            {/* Hacer un map para las diets */}
-                {diets.map((d) => {
-                    return <p>🍴{d}</p>;
-                })}
-            <Link to={'/detail/' + id}>
-            <button>
-                <span>Go To Recipe</span>
-            </button>
-            </Link>
+        <div className={style.recipe_card}>
+            <div>
+                <Link to={`/detail/${id}`}>
+                <img className={style.recipe_card__image} src={image} alt={name} />
+                </Link>
+                <h5 className={style.recipe_card__title}>{name}</h5>
+                    {diets.map((d, index) => (
+                        <li className={style.recipe_diets} key={index}>{d}</li>
+                    ))}
+            </div>
         </div>
-    )
+    );
 };
 
 export default Card;

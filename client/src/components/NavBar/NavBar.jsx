@@ -9,7 +9,6 @@ import style from "./NavBar.module.css"
 const NavBar = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
-    // // const [isSearching, setIsSearching] = useState(false);
             
     const handlerInputChange = (e) =>{
         e.preventDefault()
@@ -20,21 +19,11 @@ const NavBar = () => {
         e.preventDefault()
         setName("") //ponerlo despues de prevetdefaut para limpiar el input
         dispatch(searchRecipeName(name))
-        // setIsSearching(true);
     }
-    
-    // // const handleClick = (e) => {
-    // //     e.preventDefault();
-    // //     dispatch(getPokemons())
-    // // }
-    
-    // useEffect(() => { 
-    //     dispatch(getPokemons());
-    // },[dispatch])
 
     return(
-        <div>
-            <img className={style.img} src={"https://www.kindpng.com/picc/m/82-823366_transparent-bon-appetit-png-bon-appetit-icon-png.png"} alt=""/>
+        <div className={style.navbar}>
+            <img className={style.img} src={"https://t4.ftcdn.net/jpg/05/02/53/39/240_F_502533967_327rjdiBU76R3Xu4jfBSKkCPv7MBv9Lz.jpg"} alt=""/>
             <Link to='/about'>
             <button>
                 <span>About Me</span>
