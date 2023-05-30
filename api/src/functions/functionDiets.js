@@ -1,13 +1,12 @@
-const { getAllDiets } = require("../controllers/diets_controller.js"); //Importo mi controlador 
+const { getAllDiets } = require("../controllers/diets_controller.js"); 
 
 //Funcion para mostrar los tipos de dietas
 const getTypeDiets = async (req, res) => {
     try {
-        const typeDiet = await getAllDiets(); //Esperamos por la funcion getAllDiets
-        return res.status(200).send(typeDiet);//Si todo esta ok muestra los tipos de Dietas
+        const typeDiet = await getAllDiets(); 
+        return res.status(200).send(typeDiet);
     } catch (error) {
         return res.status(404).send('Hubo un error al obtener los tipos de dietas')
-        //Si existe algun error mostrar el mensaje de error
     } 
 }
 
