@@ -26,28 +26,18 @@ const Detail = () => {
                     alt="" />
             ) : (
                 <div>
-                    <Link to='/home'>
-                        <button className={style.back}>
-                            <span >Back</span>
-                        </button>
-                    </Link>
                     {recipe.map((r, index) => (
                         <div key={index}>
                             <div>
                                 <h3>{r.id}</h3>
                                 <h1 >{r.name}</h1>
-                                <img src={r.image} alt="🥣" className={style.recipe_card__image} />
                             </div>
-                            <div className={style.score_diets}>
-                                <h2>Score {r.healthScore}</h2>
-                                <h2>Diets</h2>
-                                {/* {!r.createdInDb ?
-                                    r.diets + (" ") :
-                                    r.diets.map((d, index) => (
-                                        <li key={index}>{d.name}</li>
-                                    ))} */}
+                                <img src={r.image} alt="🥣" className={style.recipe_card__image} />
+                            <div>
+                            <br/>
+                                <h2 className={style.score}>Score {r.healthScore}</h2>
+                                <div className={style.diets} >
                                 {!r.createdInDb ? (
-                                    // <li>{r.diets.join("  ")}</li>
                                     <ul>
                                         {r.diets.map((d, index) => (
                                             <li key={index}>{d}</li>
@@ -60,17 +50,25 @@ const Detail = () => {
                                         ))}
                                     </ul>
                                 )}
+                                </div>
                             </div>
                             <div className={style.summ_steps}>
                                 <h2>Summary</h2>
                                 <p className={style.texts}>{r.summary}</p>
                                 <h2 >Preparation</h2>
                                 <p className={style.texts}>{r.steps}</p>
+                                <br/>
                             </div>
                         </div>
                     ))}
+                    <div>
+                    <Link to='/home'>
+                        <button className={style.back}>
+                            <span >Back</span>
+                        </button>
+                    </Link>
+                    </div>
                     <br />
-                    
                 </div>
             )}
         </div>

@@ -22,7 +22,7 @@ const NavBar = () => {
     }
 
     return(
-        <div className={style.navbar}>
+        <div className={style.mynavbar}>
             <img className={style.img} src={"https://t4.ftcdn.net/jpg/05/02/53/39/240_F_502533967_327rjdiBU76R3Xu4jfBSKkCPv7MBv9Lz.jpg"} alt=""/>
             <Link to='/about'>
             <button>

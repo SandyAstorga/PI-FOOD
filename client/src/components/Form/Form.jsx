@@ -26,6 +26,10 @@ const Form = () => {
         dispatch(getDiets());
     }, [dispatch])
 
+    const validationErrors = validate(form);
+    const isButtonDisabled = validationErrors.hasErrors
+    const buttonClasses = `${style.button} ${isButtonDisabled ? style.disabled : ''}`;
+
     const handleChange = (e) => { //Guarda lo que se escribe en el input 
         setForm({
             ...form,
@@ -90,7 +94,10 @@ const Form = () => {
         <form onSubmit={handleSubmit} >
             <h1>New Recipe</h1>
             <div>
-                <label className={style.form_containerlabel}>Name: </label>
+        <img className={style.img} src="https://as1.ftcdn.net/v2/jpg/05/02/53/40/1000_F_502534033_1E6FAJoHflfWV7WJaRclRVDS06juv4pI.jpg" alt=""/>
+        </div>
+            <div>
+                <label className={style.form_containerlabel}>Name:* </label>
                 <input className={style.form_containerinput}
                     type="text"
                     value={form.name}
@@ -100,7 +107,7 @@ const Form = () => {
                 {errors.name && <li className={style.form_containerli}>{errors.name}</li>}
             </div>
             <div>
-                <label className={style.form_containerlabel}>Imagen: </label>
+                <label className={style.form_containerlabel}>Imagen:* </label>
                 <input className={style.form_containerinput}
                     type="text"
                     value={form.image}
@@ -119,7 +126,6 @@ const Form = () => {
                     name="summary"
                     placeholder="Enter recipe description"
                     onChange={handleChange} />
-                {errors.summary && <li className={style.form_containerli}>{errors.summary}</li>}
             </div>
             <div>
                 <label className={style.form_containerlabel}>Steps: </label>
@@ -131,10 +137,9 @@ const Form = () => {
                     name="steps"
                     placeholder="Enter the steps to follow"
                     onChange={handleStep} />
-                {errors.steps && <li className={style.form_containerli}>{errors.steps}</li>}
             </div>
             <div>
-                <label className={style.form_containerlabel}>Health Score: </label>
+                <label className={style.form_containerlabel}>Health Score:* </label>
                 <input className={style.form_containerinput}
                     type="range"
                     min="1"
@@ -146,7 +151,7 @@ const Form = () => {
                 {errors.healthScore && !form.healthScore && <li className={style.form_containerli}>{errors.healthScore}</li>}
             </div>
             <div>
-                <label className={style.form_containerlabel}>Diets: </label>
+                <label className={style.form_containerlabel}>Diets:* </label>
                 <div>
                 {diets?.map((d) => (
                     <div key={d.id}>
@@ -159,11 +164,11 @@ const Form = () => {
                         <label>{d.name}</label>
                     </div>
                 ))}
+                {errors.diets && <li className={style.form_containerli}>{errors.diets}</li>}
                 </div>
-                {errors.diets && !form.diets && <li className={style.form_containerli}>{errors.diets}</li>}
             </div>
             <br />
-            <button >
+            <button disabled={isButtonDisabled} className={buttonClasses}>
                 <span>Create Recipe</span>
             </button>
             <Link to='/home'>
@@ -173,9 +178,7 @@ const Form = () => {
             </Link>
         </form>
         </div>
-        <div>
-        <img className={style.img} src="https://as1.ftcdn.net/v2/jpg/05/02/53/40/1000_F_502534033_1E6FAJoHflfWV7WJaRclRVDS06juv4pI.jpg" alt=""/>
-        </div>
+        
         </>
     )
 }

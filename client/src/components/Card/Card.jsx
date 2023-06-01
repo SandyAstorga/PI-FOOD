@@ -11,7 +11,7 @@ const Card = ({ name, diets, image, id, healthScore }) => {
                 <img className={style.recipe_card__image} src={image} alt={name} />
                 </Link>
                 <h5 className={style.recipe_card__title}>{name}</h5>
-                    {diets.map((d, index) => (
+                    {diets?.map((d, index) => (
                         <li className={style.recipe_diets} key={index}>{d}</li>
                     ))}
             </div>

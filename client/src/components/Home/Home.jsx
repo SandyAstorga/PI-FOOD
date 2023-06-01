@@ -7,6 +7,7 @@ import { NavBar } from "../indexcomponents";
 import Card from "../Card/Card";
 import style from './Home.module.css'
 
+
 const Home = () => {
     const dispatch = useDispatch();
     const allRecipes = useSelector((state) => state.recipes);
@@ -52,10 +53,10 @@ const Home = () => {
     }
 
     return (
-        <div  >
+        <div> 
             <NavBar />
-            <div >
-                <button onClick={handleClick}>Refresh</button>
+            {allRecipes.length > 0 ? 
+            <div>
                 <select className={style.select} onChange={handleSort}>
                     <option value="all">Ordering</option>
                     <option value="up">A - Z</option>
@@ -78,6 +79,7 @@ const Home = () => {
                     <option value="api">API</option>
                     <option value="created">Created</option>
                 </select>
+                <button onClick={handleClick}>Refresh</button>
                 <Pagination
                 recipesPerPage={recipesPerPage}
                 allRecipes={allRecipes.length}
@@ -85,6 +87,7 @@ const Home = () => {
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
                 />
+                <div>
                 {currentRecipes?.map((r,index) => {
                     return (
                         <Card
@@ -97,10 +100,11 @@ const Home = () => {
                         />
                     )
                 })}
+                </div>
             </div>
-            
-        </div>
-    );
+            : <img className={style.loading_image} src={"https://i.gifer.com/1Gzb.gif"} alt="" />}
+    </div>
+    )
 };
 
 export default Home;

@@ -58,10 +58,10 @@ const rootReducer = (state = initialState, action) => {
             const dietToFilter = action.payload;
             let dietsFiltered = allRecipes;
             if (dietToFilter !== "all") {
-                dietsFiltered = allRecipes.filter((el) => el.diets.includes(dietToFilter));
-                if (dietsFiltered.length === 0) {
-                    dietsFiltered = allRecipes;
-                }
+                dietsFiltered = dietsFiltered.filter((el) => el.diets.includes(dietToFilter));
+                // if (dietsFiltered.length === 0) {
+                //     dietsFiltered = allRecipes;
+                // }
             }
             return {
                 ...state,

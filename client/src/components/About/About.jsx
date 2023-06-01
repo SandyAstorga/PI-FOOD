@@ -4,9 +4,10 @@ import style from "./About.module.css";
 
 const About = () => {
     return (
-        <div className={style.container}>
-            <h1 className={style.h1}>About Me</h1>
-            <p className={style.p}>
+        <div className={style.container_about}>
+            <h1 className={style.am}>About Me</h1>
+            <br />
+            <p className={style.text}>
                 Hello! I am Sandra Astorga.
                 <br />
                 <br />
@@ -15,17 +16,18 @@ const About = () => {
                 In this application I have used technologies such as:
                 <br />
                 <br />
-                {/* <div className={style.li}> */}
-                <li className={style.li}>JavaScript</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>React</li>
-                <li>Redux</li>
-                <li>Node</li>
-                <li>Express</li>
-                <li>Sequelize</li>
-                <li>PostgreSQL</li>
-                {/* </div> */}
+                <br />
+                <li className={style.list}>JavaScript</li>
+                <li className={style.list}>HTML</li>
+                <li className={style.list}>CSS</li>
+                <li className={style.list}>React</li>
+                <li className={style.list}>Redux</li>
+                <li className={style.list}>Node</li>
+                <li className={style.list}>Express</li>
+                <li className={style.list}>Sequelize</li>
+                <li className={style.list}>PostgreSQL</li>
+                <br />
+                <br />
                 <br />
                 Ever since I discovered my interest in technology and web development
                 <br />
@@ -34,16 +36,14 @@ const About = () => {
                 I am always looking for new ways to learn and improve.
             </p>
             <br/>
-            <br/>
-            <div className={style.img}>
+            <div>
             <a href="https://www.linkedin.com/in/sandraastorga13/">
-            <img src="https://icones.pro/wp-content/uploads/2021/03/icone-linkedin-ronde-grise.png" alt="" />
+            <img className={style.img} src="https://icones.pro/wp-content/uploads/2021/03/icone-linkedin-ronde-grise.png" alt="" />
             </a>
             <a href="https://github.com/SandyAstorga">
-            <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-grise.png" alt=""/>
+            <img className={style.img} src="https://icones.pro/wp-content/uploads/2021/06/icone-github-grise.png" alt=""/>
             </a>
             </div>
-            <br/>
             <br/>
             <Link to='/home'>
                 <button>

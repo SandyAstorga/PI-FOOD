@@ -1,4 +1,4 @@
-.loading_image {
+/* .loading_image {
     width: 20%;
     height: auto;
     object-fit: cover;
@@ -7,30 +7,33 @@
 }
 
 .recipe_card__image {
-    width: 240px;
-    height: 230px;
+    width: 250px;
+    height: 250px;
     border-radius: 5px;
     background: -webkit-linear-gradient(150deg,
             #643843,
             #99627A,
             #C88EA7);
     box-shadow: 10px 10px 20px rgb(231, 203, 203);
-    padding: 20px 20px;
-    margin-left: -50%;
+    padding: 30px 30px;
+    margin-left: -25%;
+}
+
+.score {
+    margin-top: -15%;
+    margin-left: 15%;
+}
+
+.diets{
+    margin-top: 12%;
+    margin-right: 6%;
+    font-size: medium;
 }
 
 .summ_steps {
-    margin-top: -32%;
-    margin-left: 45%;
-    width: 50%;
+    margin-left: 24%;
+    width: 60%;
     text-align: justify;
-
-}
-
-.score_diets {
-    margin-top: 2%;
-    margin-left: -55%;
-    font-size: small;
 }
 
 .texts {
@@ -38,93 +41,6 @@
 }
 
 .back{
-    margin-right: 100%;
+    margin-right: 0%;
 }
-
-/* Media query para dispositivos móviles */
-@media (max-width: 768px) {
-    .loading_image {
-        width: 50%;
-        padding: 25%;
-    }
-
-    .recipe_card__image {
-        width: 100%;
-        height: auto;
-        margin-left: 0;
-    }
-
-    .summ_steps {
-        margin-top: -10%;
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .score_diets {
-        margin-top: 2%;
-        margin-left: 0;
-        font-size: smaller;
-    }
-
-    .texts {
-        font-size: smaller;
-    }
-}
-
-/* Media query para tabletas */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .loading_image {
-        width: 30%;
-        padding: 20%;
-    }
-
-    .recipe_card__image {
-        width: 200px;
-        height: 190px;
-    }
-
-    .summ_steps {
-        margin-top: -25%;
-        margin-left: 40%;
-        width: 60%;
-    }
-
-    .score_diets {
-        margin-top: 2%;
-        margin-left: -50%;
-        font-size: small;
-    }
-
-    .texts {
-        font-size: small;
-    }
-}
-
-/* Media query para pantallas grandes */
-@media (min-width: 1025px) {
-    .loading_image {
-        width: 20%;
-        padding: 15%;
-    }
-
-    .recipe_card__image {
-        width: 240px;
-        height: 230px;
-    }
-
-    .summ_steps {
-        margin-top: -32%;
-        margin-left: 45%;
-        width: 50%;
-    }
-
-    .score_diets {
-        margin-top: 2%;
-        margin-left: -55%;
-        font-size: small;
-    }
-
-    .texts {
-        font-size: small;
-    }
-}
+ */
