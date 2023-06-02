@@ -1,46 +1,59 @@
-/* .loading_image {
+.loading_image {
     width: 20%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 9px;
-    padding: 15%;
+    margin-top: 15%;
+    border-radius: 20px;
 }
 
 .recipe_card__image {
-    width: 250px;
+    width: 300px;
     height: 250px;
-    border-radius: 5px;
-    background: -webkit-linear-gradient(150deg,
-            #643843,
-            #99627A,
-            #C88EA7);
-    box-shadow: 10px 10px 20px rgb(231, 203, 203);
-    padding: 30px 30px;
-    margin-left: -25%;
-}
-
-.score {
-    margin-top: -15%;
-    margin-left: 15%;
+    border-radius: 7px;
+    box-shadow: 5px 5px 20px #e26d5c;
+    margin-left: -10%;
 }
 
 .diets{
-    margin-top: 12%;
-    margin-right: 6%;
-    font-size: medium;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #ffff;
+    display: inline-block;
+    min-height: 23px;
+    padding: 3px 8px;
+    background-color: #333;
+    border-radius: 5px;
+    margin: 2px;
+    margin-top: 8rem;
 }
 
-.summ_steps {
-    margin-left: 24%;
-    width: 60%;
+.score_bar {
+    width: 200px; 
+    height: 20px; 
+    border-radius: 10px;
+    margin-top: -15%;
+    margin-left: 60%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.score_progress {
+    height: 100%;
+    background-color: #e26d5c; 
+    border-radius: 10px;
+}
+
+.titles{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #e26d5c;
+    background-color: #222222;
+    border-radius: 8px;
+    padding: 3px 8px;
+}
+
+.container_text {
+    margin-left: 15%;
+    width: 75%;
     text-align: justify;
 }
 
 .texts {
     font-size: small;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
-
-.back{
-    margin-right: 0%;
-}
- */

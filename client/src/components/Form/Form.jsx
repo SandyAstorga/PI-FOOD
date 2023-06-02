@@ -19,7 +19,7 @@ const Form = () => {
         summary: "",
         healthScore: "",
         steps: [],
-        diets: [],
+        diets: [], //llega en un array 
     });
 
     useEffect(() => { //Despacha las diets
@@ -44,7 +44,7 @@ const Form = () => {
     const handleRange = (e) => {
         setForm({
             ...form,
-            [e.target.name]: e.target.value,
+            healthScore: e.target.value,
         });
     }
 
@@ -55,7 +55,7 @@ const Form = () => {
         });
     }
 
-    const handlerCheck = (e) => {
+    const handlerCheck = (e) => { //actualiza el estado cuando se selecciona alguna casilla 
         const dietId = e.target.value;
         const isChecked = e.target.checked;
 
@@ -72,7 +72,7 @@ const Form = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e) => { //Cambia el estado con la info que va recibiendo
         e.preventDefault();
         console.log(form);
         dispatch(postRecipe(form));
@@ -90,6 +90,7 @@ const Form = () => {
 
     return (
         <>
+        <br/>
         <div className={style.form_container}>
         <form onSubmit={handleSubmit} >
             <h1>New Recipe</h1>
@@ -104,7 +105,7 @@ const Form = () => {
                     name="name"
                     placeholder="Enter name of the new recipe"
                     onChange={handleChange} />
-                {errors.name && <li className={style.form_containerli}>{errors.name}</li>}
+                {errors.name &&<li className={style.form_containerwarning }>{errors.name}</li>}
             </div>
             <div>
                 <label className={style.form_containerlabel}>Imagen:* </label>
@@ -114,7 +115,7 @@ const Form = () => {
                     name="image"
                     placeholder="Enter image link"
                     onChange={handleChange} />
-                {errors.image && <li className={style.form_containerli}>{errors.image}</li>}
+                {errors.image && <li className={style.form_containerwarning }>{errors.image}</li>}
             </div>
             <div>
                 <label className={style.form_containerlabel}>Summary: </label>
@@ -148,7 +149,7 @@ const Form = () => {
                     name="healthScore"
                     onChange={handleRange} />
                 <span>{form.healthScore}</span>
-                {errors.healthScore && !form.healthScore && <li className={style.form_containerli}>{errors.healthScore}</li>}
+                {errors.healthScore && !form.healthScore && <li className={style.form_containerwarning}>{errors.healthScore}</li>}
             </div>
             <div>
                 <label className={style.form_containerlabel}>Diets:* </label>
@@ -164,8 +165,8 @@ const Form = () => {
                         <label>{d.name}</label>
                     </div>
                 ))}
-                {errors.diets && <li className={style.form_containerli}>{errors.diets}</li>}
                 </div>
+                {errors.diets && form.diets.length === 0 && <div className={style.form_containerwarning}>{errors.diets}</div>}
             </div>
             <br />
             <button disabled={isButtonDisabled} className={buttonClasses}>
@@ -173,12 +174,12 @@ const Form = () => {
             </button>
             <Link to='/home'>
                 <button >
-                    <span>Back</span>
+                    <span>Back to Home</span>
                 </button>
             </Link>
         </form>
         </div>
-        
+            <br/>
         </>
     )
 }

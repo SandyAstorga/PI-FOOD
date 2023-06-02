@@ -45,9 +45,10 @@ const About = () => {
             </a>
             </div>
             <br/>
+            <br/>
             <Link to='/home'>
                 <button>
-                    <span >Back</span>
+                    <span >Back to Home</span>
                 </button>
             </Link>
         </div>

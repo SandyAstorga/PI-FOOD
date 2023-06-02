@@ -29,46 +29,53 @@ const Detail = () => {
                     {recipe.map((r, index) => (
                         <div key={index}>
                             <div>
-                                <h3>{r.id}</h3>
-                                <h1 >{r.name}</h1>
+                                <h3 className={style.titles}>{r.id}</h3>
+                                <h1 className={style.titles}>{r.name}</h1>
                             </div>
                                 <img src={r.image} alt="🥣" className={style.recipe_card__image} />
                             <div>
                             <br/>
-                                <h2 className={style.score}>Score {r.healthScore}</h2>
-                                <div className={style.diets} >
-                                {!r.createdInDb ? (
+                            <div className={style.score_bar}>
+                                <h1>Health Score</h1>
+                                <h2 className={style.score_progress}>{r.healthScore}%</h2>
+                            </div>
+                                <div  >
+                                {/* {!r.createdInDb ? (
                                     <ul>
                                         {r.diets.map((d, index) => (
-                                            <li key={index}>{d}</li>
+                                            <li className={style.diets} key={index}>{d}</li>
                                         ))}
                                     </ul>
                                 ) : (
                                     <ul>
                                         {r.diets.map((d, index) => (
-                                            <li key={index}>{d}</li>
+                                            <li className={style.diets} key={index}>{d}</li>
                                         ))}
                                     </ul>
-                                )}
+                                )} */}
+                                    <ul>
+                                        {r.diets?.map((d, index) => (
+                                            <li className={style.diets} key={index}>{d}</li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
-                            <div className={style.summ_steps}>
-                                <h2>Summary</h2>
+                            <div className={style.container_text}>
+                                <h2 className={style.titles}>Summary</h2>
                                 <p className={style.texts}>{r.summary}</p>
-                                <h2 >Preparation</h2>
+                                <h2 className={style.titles}>Preparation</h2>
                                 <p className={style.texts}>{r.steps}</p>
-                                <br/>
                             </div>
                         </div>
                     ))}
                     <div>
                     <Link to='/home'>
                         <button className={style.back}>
-                            <span >Back</span>
+                            <span >Back to Home</span>
                         </button>
                     </Link>
                     </div>
-                    <br />
+                    <br/>
                 </div>
             )}
         </div>

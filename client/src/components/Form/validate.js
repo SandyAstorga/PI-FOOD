@@ -1,5 +1,5 @@
 const validate = (input) => {
-    let errors = {hasErrors: false};
+    let errors = { hasErrors: false };
 
 
     if (!input.name.trim()) {
@@ -16,15 +16,14 @@ const validate = (input) => {
     if (!input.image) {
         errors.image = "Image link is required";
         errors.hasErrors = true;
-    } else if (!/\.(jpg|png|gif)$/i.test(input.image)){ 
+    } else if (!/\.(jpg|png|gif)$/i.test(input.image)) {
         errors.image = "The url is not valid";
         errors.hasErrors = true;
 
-    } else if (input.healthScore === "") {
+    }if (input.healthScore === "") {
         errors.healthScore = "Health Score is required";
         errors.hasErrors = true;
-
-    } else if (!input.diets || input.diets.length === 0) {
+    }if (!input.diets || input.diets.length === 0) {
         errors.diets = "At least one diet must be selected";
         errors.hasErrors = true;
     } 
