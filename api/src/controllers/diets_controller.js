@@ -3,7 +3,7 @@ const { Diets } = require("../db");
 const { API_KEY } = process.env;
 
 const getAllDiets = async (req, res) => {
-    const DietsApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=15&addRecipeInformation=true&apiKey=${API_KEY}`);
+    const DietsApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=100&addRecipeInformation=true&apiKey=${API_KEY}`);
     const types = await DietsApi.data.results.map(el => el.diets) 
     const typesDiets = types.flatMap(el => el) //Mapea nuevamente el resultado que es un array de arrays en un solo array con el metodo flatMap
         for (let i = 0; i < typesDiets.length; i++) {

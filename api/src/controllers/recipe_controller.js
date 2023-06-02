@@ -8,21 +8,21 @@ const { API_KEY } = process.env;
 
 //Aqui estoy llamando a la API 
 const getSpoonApi = async ()  => { 
-    const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=15&addRecipeInformation=true&apiKey=${API_KEY}`)
+    const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=100&addRecipeInformation=true&apiKey=${API_KEY}`)
     const apiInfo = await apiUrl.data.results.map(el => {
     let data = el.analyzedInstructions 
         return {
             id: el.id, 
             name: el.title,
             image: el.image, 
-            summary: el.summary.replace( /(<([^>]+)>)/ig, ''),
+            summary: el.summary.replace( /(<([^>]+)>)/ig, ' '),
             healthScore: el.healthScore, 
             diets: el.diets.map(dts => dts), 
             steps: data[0]?.steps.map((stp) => {
-                return (`${stp.number}. ${stp.step}`);
-            }).join('\n')
+                return (` ${stp.number}. ${stp.step} `);
+            })
         }
-    }) 
+    })
     return apiInfo; 
 }
 
