@@ -17,7 +17,7 @@ export const DELETE_CARD = "DELETE_CARD"
 //Todas las recetas, API y base de datos 
 export const getRecipes = () => {
     return async function (dispatch) {
-        const recipesBack = await axios.get("http://localhost:3001/recipes");
+        const recipesBack = await axios.get("/recipes");
         const recipes = recipesBack.data;
         dispatch({
             type: GET_RECIPES,
@@ -29,7 +29,7 @@ export const getRecipes = () => {
 //Todas las Dietas
 export const getDiets = () => {
     return async function (dispatch) {
-        var typediet = await axios.get("http://localhost:3001/diets");
+        var typediet = await axios.get("/diets");
         return dispatch({
             type: GET_DIET,
             payload: typediet.data
@@ -42,7 +42,7 @@ export function searchRecipeName(name) {
     name = name.toLowerCase();
     return async function (dispatch) {
         try {
-            const infoRecipeName = await axios.get("http://localhost:3001/recipes?name=" + name
+            const infoRecipeName = await axios.get("/recipes?name=" + name
             );
             return dispatch({
                 type: GET_RECIPE_NAME,
@@ -58,7 +58,7 @@ export function searchRecipeName(name) {
 export function getDetail(id) {
     return async function (dispatch) {
         try {
-            const recipeData = await axios.get("http://localhost:3001/recipes/" + id);
+            const recipeData = await axios.get("/recipes/" + id);
             return dispatch({
                 type: GET_DETAIL,
                 payload: recipeData.data
@@ -72,7 +72,7 @@ export function getDetail(id) {
 export const postRecipe = (payload) => {
     return async function (dispatch) {
         try {
-            const data = await axios.post("http://localhost:3001/recipes", payload);
+            const data = await axios.post("/recipes", payload);
             return data;
         } catch (error) {
             console.error(`Error al enviar la receta: ${error}`);
@@ -83,7 +83,7 @@ export const postRecipe = (payload) => {
 export const deleteCard = (id) => {
     return async (dispatch) => {
         try {
-            await axios.delete("http://localhost:3001/recipes/" + id);
+            await axios.delete("/recipes/" + id);
             dispatch({
                 type: DELETE_CARD,
                 payload: id,
