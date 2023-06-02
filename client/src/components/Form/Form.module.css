@@ -49,3 +49,22 @@
     opacity: 0.5; 
     cursor: not-allowed; 
 }
+
+
+@media (max-width: 768px) {
+    .form_container {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .form_containerinput,
+    .form_containertextarea {
+        width: 100%;
+    }
+    
+    .img {
+        width: 50%;
+        height: 50%;
+        margin-top: -10%;
+    }
+}
