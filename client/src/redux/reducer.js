@@ -75,15 +75,17 @@ const rootReducer = (state = initialState, action) => {
             let filteredRecipes;
             if (filterBy === "created") {
                 filteredRecipes = created.filter((el) => el.createdInDb);
-                if (filteredRecipes.length === 0) {
-                    filteredRecipes = created;
-                }
+                // if (filteredRecipes.length === 0) {
+                //     filteredRecipes = created;
+                // }
             } else {
                 filteredRecipes = created.filter((el) => !el.createdInDb);
             }
             return {
                 ...state,
-                recipes: filteredRecipes
+                recipes: 
+                action.payload === "recipes" ?
+                state.allRecipes : filteredRecipes
             };
 
         //Filtra Alfabeticamente
