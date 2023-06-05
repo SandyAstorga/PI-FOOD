@@ -12,7 +12,7 @@ export const FILTER_CREATE = 'FILTER_CREATE';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_SCORE = 'ORDER_BY_SCORE';
 export const POST_RECIPE = "POST_RECIPE";
-export const DELETE_CARD = "DELETE_CARD"
+// export const DELETE_CARD = "DELETE_CARD"
 
 //Todas las recetas, API y base de datos 
 export const getRecipes = () => {
@@ -80,22 +80,6 @@ export const postRecipe = (payload) => {
     };
 };
 
-export const deleteCard = (id) => {
-    return async (dispatch) => {
-        try {
-            await axios.delete("/recipes/" + id);
-            dispatch({
-                type: DELETE_CARD,
-                payload: id,
-            });
-        } catch (error) {
-            dispatch({
-                type: DELETE_CARD,
-                payload: error.message,
-            });
-        }
-    };
-};
 
 //Filtrar por Tipos de Dietas
 export const filterRecipesByDiets = (payload) => {
@@ -129,3 +113,19 @@ export function orderByScore(payload) {
     }
 }
 
+// export const deleteCard = (id) => {
+//     return async (dispatch) => {
+//         try {
+//             await axios.delete("/recipes/" + id);
+//             dispatch({
+//                 type: DELETE_CARD,
+//                 payload: id,
+//             });
+//         } catch (error) {
+//             dispatch({
+//                 type: DELETE_CARD,
+//                 payload: error.message,
+//             });
+//         }
+//     };
+// };

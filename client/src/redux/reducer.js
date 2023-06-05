@@ -1,14 +1,14 @@
 // un reducer es una función pura que recibe una acción y el estado actual de la aplicación, 
 // y devuelve un nuevo estado actualizado de la aplicación.
 
-import { GET_RECIPES, GET_RECIPE_NAME, GET_DETAIL, FILTER_BY_DIET, GET_DIET, FILTER_CREATE, ORDER_BY_NAME, ORDER_BY_SCORE, POST_RECIPE, DELETE_CARD } from "./actions";
+import { GET_RECIPES, GET_RECIPE_NAME, GET_DETAIL, FILTER_BY_DIET, GET_DIET, FILTER_CREATE, ORDER_BY_NAME, ORDER_BY_SCORE, POST_RECIPE } from "./actions";
 
 const initialState = { //estado inicial
     recipes: [],
     allRecipes: [],
     detail: [],
     diets: [],
-    createdByUser: []
+    // createdByUser: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -39,12 +39,12 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
             }
 
-        case DELETE_CARD:
-            return {
-                ...state,
-                createdByUser: state.createdByUser.filter((card) => card.id !== action.payload),
-                // allRecipes: state.allRecipes.filter((card) => card.id !== action.payload),
-            };
+        // case DELETE_CARD:
+        //     return {
+        //         ...state,
+        //         createdByUser: state.createdByUser.filter((card) => card.id !== action.payload),
+        //         // allRecipes: state.allRecipes.filter((card) => card.id !== action.payload),
+        //     };
 
         case GET_DETAIL:
             return {
