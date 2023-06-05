@@ -30,7 +30,8 @@ const Home = () => {
 
     const handleClick = (e) => {
         // e.preventDefault();
-        dispatch(getRecipes());
+        // dispatch(getRecipes());
+        window.location.reload();
     };
     
     const handlerFilterCreate = (e) => {
