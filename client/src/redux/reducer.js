@@ -59,9 +59,9 @@ const rootReducer = (state = initialState, action) => {
             let dietsFiltered = allRecipes;
             if (dietToFilter !== "all") {
                 dietsFiltered = dietsFiltered.filter((el) => el.diets.includes(dietToFilter));
-                // if (dietsFiltered.length === 0) {
-                //     dietsFiltered = allRecipes;
-                // }
+                if (dietsFiltered.length === 0) {
+                    dietsFiltered = allRecipes;
+                }
             }
             return {
                 ...state,

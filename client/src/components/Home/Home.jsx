@@ -32,6 +32,7 @@ const Home = () => {
         // e.preventDefault();
         // dispatch(getRecipes());
         window.location.reload();
+        // la página se recarga sin tener en cuenta el estado actual de la página. 
     };
     
     const handlerFilterCreate = (e) => {
