@@ -11,8 +11,9 @@ const Card = ({ name, diets, image, id, createdInDb, healthScore }) => {
             await axios.delete(`http://localhost:3001/recipes/${id}`);
             alert('Receta eliminada correctamente');
             history.push('/home');
-            window.location.reload()
+            // window.location.reload()
         } catch (error) {
+            console.log(error);
             alert('Error al eliminar la receta:', error);
         }
     };
