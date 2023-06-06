@@ -1,6 +1,4 @@
-//Las acciones describen un cambio que debe realizarse en el estado de la aplicación
-//y se envían a través de los reducers para actualizar el estado.
-//proporcionan una forma de mantener un registro de lo que está sucediendo en la aplicación.
+
 import axios from "axios";
 
 export const GET_RECIPES = "GET_RECIPES"; //identificador único para una acción.

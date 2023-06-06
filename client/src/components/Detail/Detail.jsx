@@ -39,20 +39,7 @@ const Detail = () => {
                                 <h1>Health Score</h1>
                                 <h2 className={style.score_progress}>{r.healthScore}%</h2>
                             </div>
-                                <div  >
-                                {/* {!r.createdInDb ? (
-                                    <ul>
-                                        {r.diets.map((d, index) => (
-                                            <li className={style.diets} key={index}>{d}</li>
-                                        ))}
-                                    </ul>
-                                ) : (
-                                    <ul>
-                                        {r.diets.map((d, index) => (
-                                            <li className={style.diets} key={index}>{d}</li>
-                                        ))}
-                                    </ul>
-                                )} */}
+                                <div>
                                     <ul>
                                         {r.diets?.map((d, index) => (
                                             <li className={style.diets} key={index}>{d}</li>
