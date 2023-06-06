@@ -99,6 +99,7 @@ const Home = () => {
                             image={r.image}
                             diets={r.diets}
                             healthScore={r.healthScore}
+                            createdInDb={r.createdInDb}
                         />
                     )
                 })}
