@@ -1,17 +1,17 @@
 import React from 'react';
 import axios from "axios"
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import style from "./Card.module.css"
 
 const Card = ({ name, diets, image, id, createdInDb, healthScore }) => {
-    const history = useHistory();
+    // const history = useHistory();
 
     const handleDelete = async (id) => {
         try {
             await axios.delete(`/recipes/${id}`);
             alert('Receta eliminada correctamente');
-            history.push('/home');
-            // window.location.reload()
+            // history.push('/home');
+            window.location.reload()
         } catch (error) {
             console.log(error);
             alert('Error al eliminar la receta:', error);

@@ -29,9 +29,9 @@ const Home = () => {
     }, [dispatch]);
 
     const handleClick = (e) => {
-        // e.preventDefault();
-        // dispatch(getRecipes());
-        window.location.reload();
+        e.preventDefault();
+        dispatch(getRecipes());
+        // window.location.reload();
         // la página se recarga sin tener en cuenta el estado actual de la página. 
     };
     
