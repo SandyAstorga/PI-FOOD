@@ -60,8 +60,25 @@ const getRecipebyId = async(req, res) => {
     }
 }
 
+//Funcion para eliminar receta por ID
+const deleteRecipe = async (req, res) => {
+    try {
+        const {id}= req.params
+        await Recipe.destroy({
+            where: {
+                id,
+            },
+        });
+        res.status(200).json({ message: 'Receta eliminada correctamente' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al eliminar la receta' });
+        console.log(error);
+    }
+};
+
 module.exports = {
     getRecipes,
     postRecipe,
-    getRecipebyId
+    getRecipebyId, 
+    deleteRecipe
 };
