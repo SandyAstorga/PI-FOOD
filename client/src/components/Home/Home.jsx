@@ -56,7 +56,9 @@ const Home = () => {
 
     return (
         <div> 
-            <NavBar />
+            <NavBar 
+            setCurrentPege={1}
+            />
             {allRecipes.length > 0 ? 
             <div>
                 <select className={style.select} onChange={handleSort}>
