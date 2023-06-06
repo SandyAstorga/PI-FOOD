@@ -42,8 +42,7 @@ export function searchRecipeName(name) {
     name = name.toLowerCase();
     return async function (dispatch) {
         try {
-            const infoRecipeName = await axios.get("/recipes?name=" + name
-            );
+            const infoRecipeName = await axios.get("/recipes?name=" + name);
             return dispatch({
                 type: GET_RECIPE_NAME,
                 payload: infoRecipeName.data,

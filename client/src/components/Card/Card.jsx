@@ -8,7 +8,7 @@ const Card = ({ name, diets, image, id, createdInDb, healthScore }) => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3001/recipes/${id}`);
+            await axios.delete(`/recipes/${id}`);
             alert('Receta eliminada correctamente');
             history.push('/home');
             // window.location.reload()
@@ -22,7 +22,7 @@ const Card = ({ name, diets, image, id, createdInDb, healthScore }) => {
         <div className={style.recipe_card}>
             <div>
                 {createdInDb && (
-                    <button onClick={() => handleDelete(id)}>X</button>
+                    <button onClick={() => handleDelete(id)}>Delete</button>
                 )}
                 <Link to={`/detail/${id}`}>
                     <img className={style.recipe_card__image} src={image} alt={name} />
