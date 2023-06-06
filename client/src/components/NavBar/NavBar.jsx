@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { searchRecipeName } from "../../redux/actions";
 import style from "./NavBar.module.css"
 
@@ -9,6 +9,7 @@ import style from "./NavBar.module.css"
 const NavBar = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
+    const currentPage = useSelector((state) => state.setCurrentPage);
             
     const handlerInputChange = (e) =>{ //Capturar el nombre ingresado por el usuario y actualizar el estado 
         e.preventDefault()
@@ -18,7 +19,7 @@ const NavBar = () => {
     const handlerSubmit = (e) => { //Realiza la busqueda por name 
         e.preventDefault()
         setName("") //ponerlo despues de prevetdefault para limpiar el input
-        dispatch(searchRecipeName(name, { page: 1 }))
+        dispatch(searchRecipeName(name, { page: currentPage }))
     }
 
     return(
