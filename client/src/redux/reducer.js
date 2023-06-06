@@ -1,14 +1,13 @@
 // un reducer es una función pura que recibe una acción y el estado actual de la aplicación, 
 // y devuelve un nuevo estado actualizado de la aplicación.
 
-import { GET_RECIPES, GET_RECIPE_NAME, GET_DETAIL, FILTER_BY_DIET, GET_DIET, FILTER_CREATE, ORDER_BY_NAME, ORDER_BY_SCORE, POST_RECIPE } from "./actions";
+import { GET_RECIPES, GET_RECIPE_NAME, GET_DETAIL, FILTER_BY_DIET, GET_DIET, FILTER_CREATE, ORDER_BY_NAME, ORDER_BY_SCORE, POST_RECIPE , DELETE_CARD} from "./actions";
 
 const initialState = { //estado inicial
     recipes: [],
     allRecipes: [],
     detail: [],
     diets: [],
-    // createdByUser: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -39,15 +38,9 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
             }
 
-        // case DELETE_CARD:
-        //     return {
-        //         ...state,
-        //         createdByUser: state.createdByUser.filter((card) => card.id !== action.payload),
-        //         // allRecipes: state.allRecipes.filter((card) => card.id !== action.payload),
-        //     };
-
-        case GET_DETAIL:
-            return {
+            
+            case GET_DETAIL:
+                return {
                 ...state,
                 detail: action.payload
             }
@@ -75,9 +68,6 @@ const rootReducer = (state = initialState, action) => {
             let filteredRecipes;
             if (filterBy === "created") {
                 filteredRecipes = created.filter((el) => el.createdInDb);
-                // if (filteredRecipes.length === 0) {
-                //     filteredRecipes = created;
-                // }
             } else {
                 filteredRecipes = created.filter((el) => !el.createdInDb);
             }
@@ -99,7 +89,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 recipes:
-                    action.payload === "all" ?
+                action.payload === "all" ?
                         state.allRecipes : sortedRecipes
             };
 
@@ -118,11 +108,19 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 recipes:
-                    action.payload === "score"
-                        ? state.allRecipes : scoreFilter
+                action.payload === "score"
+                ? state.allRecipes : scoreFilter
+            };
+            
+            //Eliminar receta creada
+            case DELETE_CARD:
+            const updatedRecipes = state.recipes.filter(recipe => recipe.id !== action.recipeId);
+            return {
+                ...state,
+                recipes: updatedRecipes
             };
 
-
+            
         default:
             return { ...state };
     }

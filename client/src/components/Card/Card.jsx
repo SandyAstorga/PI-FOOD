@@ -1,29 +1,21 @@
 import React from 'react';
-import axios from "axios"
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteRecipe, getRecipes } from '../../redux/actions';
 import style from "./Card.module.css"
 
 const Card = ({ name, diets, image, id, createdInDb, healthScore }) => {
-    // const history = useHistory();
+
+    const dispatch = useDispatch();
 
     const handleDelete = async (id) => {
-        try {
-            await axios.delete(`/recipes/${id}`);
-            alert('Receta eliminada correctamente');
-            // history.push('/home');
-            window.location.reload()
-        } catch (error) {
-            console.log(error);
-            alert('Error al eliminar la receta:', error);
-        }
+        dispatch(deleteRecipe(id));
+        dispatch(getRecipes())
     };
 
     return (
         <div className={style.recipe_card}>
             <div>
-                {createdInDb && (
-                    <button onClick={() => handleDelete(id)}>Delete</button>
-                )}
                 <Link to={`/detail/${id}`}>
                     <img className={style.recipe_card__image} src={image} alt={name} />
                 </Link>
@@ -32,6 +24,9 @@ const Card = ({ name, diets, image, id, createdInDb, healthScore }) => {
                 {diets?.map((d, index) => (
                     <li className={style.recipe_diets} key={index}>{d}</li>
                 ))}
+                {createdInDb && (
+                    <button className={style.delete} onClick={() => handleDelete(id)}>Delete</button>
+                )}
             </div>
         </div>
     );

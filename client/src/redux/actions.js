@@ -12,7 +12,7 @@ export const FILTER_CREATE = 'FILTER_CREATE';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_SCORE = 'ORDER_BY_SCORE';
 export const POST_RECIPE = "POST_RECIPE";
-// export const DELETE_CARD = "DELETE_CARD"
+export const DELETE_CARD = "DELETE_CARD"
 
 //Todas las recetas, API y base de datos 
 export const getRecipes = () => {
@@ -68,13 +68,14 @@ export function getDetail(id) {
     }
 }
 
+//Crea nueva receta 
 export const postRecipe = (payload) => {
     return async function (dispatch) {
         try {
             const data = await axios.post("/recipes", payload);
             return data;
         } catch (error) {
-            console.error(`Error al enviar la receta: ${error}`);
+            console.error(`Error sending the recipe: ${error}`);
         }
     };
 };
@@ -112,19 +113,19 @@ export function orderByScore(payload) {
     }
 }
 
-// export const deleteCard = (id) => {
-//     return async (dispatch) => {
-//         try {
-//             await axios.delete("/recipes/" + id);
-//             dispatch({
-//                 type: DELETE_CARD,
-//                 payload: id,
-//             });
-//         } catch (error) {
-//             dispatch({
-//                 type: DELETE_CARD,
-//                 payload: error.message,
-//             });
-//         }
-//     };
-// };
+//Elimina receta creada
+export const deleteRecipe = (id) => {
+    return async (dispatch) => {
+        try {
+            await axios.delete("/recipes/" + id);
+            dispatch({
+                type: DELETE_CARD,
+                payload: id
+            });
+            alert('Recipe successfully deleted');
+        } catch (error) {
+            alert('Error deleting recipe', error);
+        }
+    }
+}
+
