@@ -10,15 +10,15 @@ const NavBar = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
             
-    const handlerInputChange = (e) =>{
+    const handlerInputChange = (e) =>{ //Capturar el nombre ingresado por el usuario y actualizar el estado 
         e.preventDefault()
         setName(e.target.value)
     }
     
-    const handlerSubmit = (e) => {
+    const handlerSubmit = (e) => { //Realiza la busqueda por name 
         e.preventDefault()
-        setName("") //ponerlo despues de prevetdefaut para limpiar el input
-        dispatch(searchRecipeName(name))
+        setName("") //ponerlo despues de prevetdefault para limpiar el input
+        dispatch(searchRecipeName(name, { page: 1 }))
     }
 
     return(
