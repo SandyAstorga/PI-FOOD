@@ -32,19 +32,32 @@ const Detail = () => {
                                 <h3 className={style.titles}>{r.id}</h3>
                                 <h1 className={style.titles}>{r.name}</h1>
                             </div>
-                                <img src={r.image} alt="🥣" className={style.recipe_card__image} />
+                            <img src={r.image} alt="🥣" className={style.recipe_card__image} />
                             <div>
-                            <br/>
-                            <div className={style.score_bar}>
-                                <h1>Health Score</h1>
-                                <h2 className={style.score_progress}>{r.healthScore}%</h2>
-                            </div>
+                                <br />
+                                <div className={style.score_bar}>
+                                    <h1>Health Score</h1>
+                                    <h2 className={style.score_progress}>{r.healthScore}%</h2>
+                                </div>
                                 <div>
-                                    <ul>
+                                    {!r.createdInDb ? (
+                                        <ul>
+                                            {r.diets.map((d, index) => (
+                                                <li className={style.diets} key={index}>{d}</li>
+                                            ))}
+                                        </ul>
+                                    ) : (
+                                        <ul>
+                                            {r.diets.map((d, index) => (
+                                                <li className={style.diets} key={index}>{d}</li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                    {/* <ul>
                                         {r.diets?.map((d, index) => (
                                             <li className={style.diets} key={index}>{d}</li>
                                         ))}
-                                    </ul>
+                                    </ul> */}
                                 </div>
                             </div>
                             <div className={style.container_text}>
@@ -56,13 +69,13 @@ const Detail = () => {
                         </div>
                     ))}
                     <div>
-                    <Link to='/home'>
-                        <button className={style.back}>
-                            <span >Back to Home</span>
-                        </button>
-                    </Link>
+                        <Link to='/home'>
+                            <button className={style.back}>
+                                <span >Back to Home</span>
+                            </button>
+                        </Link>
                     </div>
-                    <br/>
+                    <br />
                 </div>
             )}
         </div>
