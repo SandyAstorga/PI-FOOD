@@ -9,7 +9,7 @@ import style from "./NavBar.module.css"
 const NavBar = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState("")
-    const currentPage = useSelector((state) => state.setCurrentPage);
+    const currentPage = useSelector((state) => state.CurrentPage);
             
     const handlerInputChange = (e) =>{ //Capturar el nombre ingresado por el usuario y actualizar el estado 
         e.preventDefault()
