@@ -19,7 +19,7 @@ const NavBar = () => {
     const handlerSubmit = (e) => { //Realiza la busqueda por name 
         e.preventDefault()
         setName("") //ponerlo despues de prevetdefault para limpiar el input
-        dispatch(searchRecipeName(name, { page: currentPage }))
+        dispatch(searchRecipeName(name, currentPage(1)))
     }
 
     return(
