@@ -57,7 +57,6 @@ const Home = () => {
     return (
         <div> 
             <NavBar />
-            {allRecipes.length > 0 ? 
             <div>
                 <select className={style.select} onChange={handleSort}>
                     <option value="all">Ordering</option>
@@ -89,6 +88,7 @@ const Home = () => {
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
                 />
+                {allRecipes.length > 0 ? 
                 <div>
                 {currentRecipes?.map((r,index) => {
                     return (
@@ -104,8 +104,8 @@ const Home = () => {
                     )
                 })}
                 </div>
-            </div>
             : <img className={style.loading_image} src={"https://i.gifer.com/1Gzb.gif"} alt="" />}
+            </div>
     </div>
     )
 };
