@@ -66,7 +66,7 @@ const rootReducer = (state = initialState, action) => {
             if (filterBy === "created") {
                 filteredRecipes = created.filter((el) => el.createdInDb);
                 if (filteredRecipes.length === 0) {
-                    // filteredRecipes = created
+                    filteredRecipes = created
                     alert("There are no recipes created");
                 }
             } else {
