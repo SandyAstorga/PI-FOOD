@@ -11,6 +11,20 @@ export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_SCORE = 'ORDER_BY_SCORE';
 export const POST_RECIPE = "POST_RECIPE";
 export const DELETE_CARD = "DELETE_CARD"
+export const GET_RECIPES1 = "GET_RECIPES1"
+
+// //Todas las recetas, API y base de datos 
+//MI CODEADA EN VIVO !!!
+// export const getRecipes = async() => {
+//     const apiRecipes = await axios.get('/recipes');
+//     const recipes = apiRecipes.data
+//     dispatch({
+//     return {
+//         type: GET_RECIPES1,
+//         payload: recipes
+//     }
+// })
+// }
 
 //Todas las recetas, API y base de datos 
 export const getRecipes = () => {
