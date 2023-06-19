@@ -41,7 +41,7 @@ export const getRecipes = () => {
 //Todas las Dietas
 export const getDiets = () => {
     return async function (dispatch) {
-        var typediet = await axios.get("/diets");
+        const typediet = await axios.get("/diets");
         return dispatch({
             type: GET_DIET,
             payload: typediet.data
