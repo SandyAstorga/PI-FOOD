@@ -2,7 +2,7 @@ import './App.css';
 import { Route } from 'react-router-dom';
 import { Landing, Home, Form, Detail, About } from './components/indexcomponents' 
 import axios from 'axios';
-axios.defaults.baseURL = 'https://pi-food-production-d882.up.railway.app'
+axios.defaults.baseURL = 'https://pi-food-deploy-production-0635.up.railway.app/'
 // axios.defaults.baseURL = 'http://localhost:3001'
 
 function App() {
