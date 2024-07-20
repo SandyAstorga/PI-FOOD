@@ -18,7 +18,7 @@ const Detail = () => {
     const recipe = useSelector((state) => state.detail);
 
     return (
-        <div>
+        <div className={style.container_detail}>
             {loading ? (
                 <img
                     className={style.loading_image}

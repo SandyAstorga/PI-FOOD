@@ -34,7 +34,7 @@ const Home = () => {
         // window.location.reload();
         // la página se recarga sin tener en cuenta el estado actual de la página. 
     };
-    
+
     const handlerFilterCreate = (e) => {
         dispatch(filterCreate(e.target.value))
     }
@@ -55,58 +55,64 @@ const Home = () => {
     }
 
     return (
-        <div> 
+        <div className={style.home_container}>
             <NavBar />
-            <div>
-                <select className={style.select} onChange={handleSort}>
-                    <option value="all">Ordering</option>
-                    <option value="up">A - Z</option>
-                    <option value="des">Z - A</option>
-                </select>
-                <select className={style.select} onChange={handleScore}>
-                    <option value="score">Health Score</option>
-                    <option value="higher">Higher</option>
-                    <option value="lower">Lower</option>
-                </select>
-                <select className={style.select} onChange={handlerFilterDiets}>
-                    <option value="all">Diets</option>
-                    {diets?.map((d, index) => (
-                        <option key={index} value={d.name}>{d.name}</option>
-                    ))
-                    }
-                </select>
-                <select className={style.select} onChange={handlerFilterCreate}>
-                    <option value="recipes">Recipes</option>
-                    <option value="api">API</option>
-                    <option value="created">Created</option>
-                </select>
-                <button onClick={handleClick}>Refresh</button>
-                <Pagination
-                recipesPerPage={recipesPerPage}
-                allRecipes={allRecipes.length}
-                page={page}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                />
-                {allRecipes.length > 0 ? 
-                <div>
-                {currentRecipes?.map((r,index) => {
-                    return (
-                        <Card
-                            key={index}
-                            id={r.id}
-                            name={r.name}
-                            image={r.image}
-                            diets={r.diets}
-                            healthScore={r.healthScore}
-                            createdInDb={r.createdInDb}
-                        />
-                    )
-                })}
+            <>
+                <div className={style.container_select}>
+                    <select className={style.select} onChange={handleSort}>
+                        <option value="all">Ordering</option>
+                        <option value="up">A - Z</option>
+                        <option value="des">Z - A</option>
+                    </select>
+                    <select className={style.select} onChange={handleScore}>
+                        <option value="score">Health Score</option>
+                        <option value="higher">Higher</option>
+                        <option value="lower">Lower</option>
+                    </select>
+                    <select className={style.select} onChange={handlerFilterDiets}>
+                        <option value="all">Diets</option>
+                        {diets?.map((d, index) => (
+                            <option key={index} value={d.name}>{d.name}</option>
+                        ))
+                        }
+                    </select>
+                    <select className={style.select} onChange={handlerFilterCreate}>
+                        <option value="recipes">Recipes</option>
+                        <option value="api">API</option>
+                        <option value="created">Created</option>
+                    </select>
+                    <button onClick={handleClick}>Refresh</button>
                 </div>
-            : <img className={style.loading_image} src={"https://i.gifer.com/1Gzb.gif"} alt="" />}
-            </div>
-    </div>
+                <Pagination
+                    recipesPerPage={recipesPerPage}
+                    allRecipes={allRecipes.length}
+                    page={page}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
+                {allRecipes.length > 0 ?
+                    <div>
+                        {currentRecipes?.map((r, index) => {
+                            return (
+                                <Card
+                                    key={index}
+                                    id={r.id}
+                                    name={r.name}
+                                    image={r.image}
+                                    diets={r.diets}
+                                    healthScore={r.healthScore}
+                                    createdInDb={r.createdInDb}
+                                />
+                            )
+                        })}
+                    </div>
+                    : 
+                    <div className={style.container_loading}>
+                        <img className={style.loading_image} src={"https://i.gifer.com/1Gzb.gif"} alt="" />
+                    </div>
+                    }
+            </>
+        </div>
     )
 };
 

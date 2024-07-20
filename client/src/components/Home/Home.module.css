@@ -1,28 +1,50 @@
-/* .home_container {
-    max-width: 120px;
-    margin: 60px auto 0;
-    padding: 20px;
-} */
+.home_container {
+    background: #fff;
+    height: 100vh;
+    width: 80vw;
+}
 
 /* Mi imagen de loading */
+.container_loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #333; */
+    /* min-height: 89vh; */
+    padding: 2rem;
+}
 .loading_image {
-    width: 20%;
-    margin-top: 15%;
-    border-radius: 20px;
-    /* height: auto; */
-    /* object-fit: cover; */
-    /* padding: 15%; */
+    width: 150px;
+    border-radius: 1rem;
 }
 
 /* Donde tengo mis filtros  */
+.container_select {
+    padding: .5rem;
+    display: flex;
+    justify-content: space-around;
+}
 .select {
-    padding: 8px;
+    padding: .5rem;
     border: none;
-    border-radius: 5px;
-    background-color: #fff;
     color: #333;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
-    margin-right: 7px;
+    font-size: clamp(.9rem, 2.5vw, 1.1rem);
 }
 
+/* Responsive */
+@media screen and (min-width: 1440px) {
+    .home_container {
+        width: 1000px !important;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .container_select {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: .5rem;
+    }
+    .home_container {
+        width: 95vw;
+    }
+}

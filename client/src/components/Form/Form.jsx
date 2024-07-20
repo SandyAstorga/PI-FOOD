@@ -1,4 +1,4 @@
-import React from "react";  
+import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { postRecipe, getDiets } from "../../redux/actions";
@@ -39,7 +39,7 @@ const Form = () => {
             ...form,
             [e.target.name]: e.target.value,
         }))
-    };      
+    };
 
     const handleRange = (e) => {
         setForm({
@@ -86,101 +86,94 @@ const Form = () => {
             diets: [],
         });
         history.push('/home')
-}
+    }
 
     return (
-        <>
-        <br/>
         <div className={style.form_container}>
-        <form onSubmit={handleSubmit} >
-            <h1>New Recipe</h1>
-            <div>
-        <img className={style.img} src="https://as1.ftcdn.net/v2/jpg/05/02/53/40/1000_F_502534033_1E6FAJoHflfWV7WJaRclRVDS06juv4pI.jpg" alt=""/>
-        </div>
-            <div>
-                <label className={style.form_containerlabel}>Name:* </label>
-                <input className={style.form_containerinput}
-                    type="text"
-                    value={form.name}
-                    name="name"
-                    placeholder="Enter name of the new recipe"
-                    onChange={handleChange} />
-                {errors.name &&<li className={style.form_containerwarning }>{errors.name}</li>}
+            <div className={style.form_title}>
+                <h1>New Recipe</h1>
+                <img className={style.img} src="https://as1.ftcdn.net/v2/jpg/05/02/53/40/1000_F_502534033_1E6FAJoHflfWV7WJaRclRVDS06juv4pI.jpg" alt="" />
             </div>
-            <div>
-                <label className={style.form_containerlabel}>Imagen:* </label>
-                <input className={style.form_containerinput}
-                    type="text"
-                    value={form.image}
-                    name="image"
-                    placeholder="Enter image link"
-                    onChange={handleChange} />
-                {errors.image && <li className={style.form_containerwarning }>{errors.image}</li>}
-            </div>
-            <div>
-                <label className={style.form_containerlabel}>Summary: </label>
-                <textarea className={style.form_containertextarea}
-                    type="text"
-                    cols="40"
-                    rows="3"
-                    value={form.summary}
-                    name="summary"
-                    placeholder="Enter recipe description"
-                    onChange={handleChange} />
-            </div>
-            <div>
-                <label className={style.form_containerlabel}>Steps: </label>
-                <textarea className={style.form_containertextarea}
-                    type="text"
-                    cols="40"
-                    rows="3"
-                    value={form.steps}
-                    name="steps"
-                    placeholder="Enter the steps to follow"
-                    onChange={handleStep} />
-            </div>
-            <div>
-                <label className={style.form_containerlabel}>Health Score:* </label>
-                <input className={style.form_containerinput}
-                    type="range"
-                    min="1"
-                    max="100"
-                    value={form.healthScore}
-                    name="healthScore"
-                    onChange={handleRange} />
-                <span>{form.healthScore}</span>
-                {errors.healthScore && !form.healthScore && <li className={style.form_containerwarning}>{errors.healthScore}</li>}
-            </div>
-            <div>
-                <label className={style.form_containerlabel}>Diets:* </label>
+            <form onSubmit={handleSubmit}  className={style.form}>
                 <div>
-                {diets?.map((d) => (
-                    <div key={d.id}>
-                        <input 
-                            type="checkbox"
-                            name="diets"
-                            value={d.name}
-                            onChange={handlerCheck}
-                            />
-                        <label>{d.name}</label>
-                    </div>
-                ))}
+                    {/* <label className={style.form_containerlabel}>Name:* </label> */}
+                    <input className={style.form_containerinput}
+                        type="text"
+                        value={form.name}
+                        name="name"
+                        placeholder="Enter name of the new recipe"
+                        onChange={handleChange} />
+                    {errors.name && <li className={style.form_containerwarning}>{errors.name}</li>}
                 </div>
-                {errors.diets && form.diets.length === 0 && <div className={style.form_containerwarning}>{errors.diets}</div>}
-            </div>
-            <br />
-            <button disabled={isButtonDisabled} className={buttonClasses}>
-                <span>Create Recipe</span>
-            </button>
-            <Link to='/home'>
-                <button >
-                    <span>Back to Home</span>
+                <div>
+                    {/* <label className={style.form_containerlabel}>Imagen:* </label> */}
+                    <input className={style.form_containerinput}
+                        type="text"
+                        value={form.image}
+                        name="image"
+                        placeholder="Enter image link"
+                        onChange={handleChange} />
+                    {errors.image && <li className={style.form_containerwarning}>{errors.image}</li>}
+                </div>
+                <div>
+                    {/* <label className={style.form_containerlabel}>Summary: </label> */}
+                    <textarea className={style.form_containertextarea}
+                        type="text"
+                        cols="40"
+                        rows="3"
+                        value={form.summary}
+                        name="summary"
+                        placeholder="Enter recipe description"
+                        onChange={handleChange} />
+                </div>
+                <div>
+                    {/* <label className={style.form_containerlabel}>Steps: </label> */}
+                    <textarea className={style.form_containertextarea}
+                        type="text"
+                        cols="40"
+                        rows="3"
+                        value={form.steps}
+                        name="steps"
+                        placeholder="Enter the steps to follow"
+                        onChange={handleStep} />
+                </div>
+                <div>
+                    <label className={style.form_containerlabel}>Health Score:*  <span>{form.healthScore}</span></label>
+                    <input className={style.form_containerinput}
+                        type="range"
+                        min="1"
+                        max="100"
+                        value={form.healthScore}
+                        name="healthScore"
+                        onChange={handleRange} />
+                    {errors.healthScore && !form.healthScore && <li className={style.form_containerwarning}>{errors.healthScore}</li>}
+                </div>
+                <div>
+                    <label className={style.form_containerlabel}>Diets:* </label>
+                    <div>
+                        {diets?.map((d) => (
+                            <div key={d.id}>
+                                <input
+                                    type="checkbox"
+                                    name="diets"
+                                    value={d.name}
+                                    onChange={handlerCheck}
+                                />
+                                <label>{d.name}</label>
+                            </div>
+                        ))}
+                    </div>
+                    {errors.diets && form.diets.length === 0 && <div className={style.form_containerwarning}>{errors.diets}</div>}
+                </div>
+                <br />
+                <button disabled={isButtonDisabled} className={buttonClasses}>
+                    Create Recipe
                 </button>
-            </Link>
-        </form>
+                <Link to='/home'>
+                    <button className={style.back}>Back to Home</button>
+                </Link>
+            </form>
         </div>
-            <br/>
-        </>
     )
 }
 

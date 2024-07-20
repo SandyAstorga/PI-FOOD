@@ -1,4 +1,5 @@
 import React from "react";
+import style from "./Pagination.module.css"
 
 //Logica del paginado
 export default function Paginado({ recipesPerPage, allRecipes, page, setCurrentPage, currentPage }) {
@@ -18,7 +19,7 @@ export default function Paginado({ recipesPerPage, allRecipes, page, setCurrentP
     };
 
     return (
-        <div>
+        <div className={style.container}>
             <ul className='paginado' >
                 {currentPage !== 1 && (
                     <button onClick={handlePrevClick}>{'<<'}</button>
