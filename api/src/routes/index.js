@@ -2,7 +2,8 @@ const { Router } = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 const { getRecipes, postRecipe, getRecipebyId, deleteRecipe} = require('../functions/functionRecipe.js') //Importo la funciones de Recetas para mis rutas
-const { getTypeDiets } = require('../functions/functionDiets.js') //Importo la funciones para mis rutas
+const { getTypeDiets } = require('../functions/functionDiets.js'); //Importo la funciones para mis rutas
+// const { getAllDiets } = require('../controllers/diets_controller.js');
 
 const router = Router();
 
@@ -14,6 +15,7 @@ router.get('/recipes', getRecipes); //Por name 'recipes?name='''
 
 //GET Ruta para el llamado de los tipos de dieta de la API y de la DB para buscar por name
 router.get('/diets', getTypeDiets); 
+// router.get('/diets', getAllDiets);
 
 //GET Ruta para el llamado por ID
 router.get('/recipes/:idRecipe', getRecipebyId); 
