@@ -123,9 +123,9 @@
 // export default Home;
 
 import React from "react";
-import { useEffect, useState } from "react"; // Hooks
-import { useDispatch, useSelector } from "react-redux"; // Hooks
-import { getRecipes, getDiets, filterRecipesByDiets, orderByName, orderByScore, filterCreate } from "../../redux/actions"; // Actions
+import { useState } from "react"; // Hooks
+import { useSelector } from "react-redux"; // Hooks
+// import { getRecipes, getDiets, filterRecipesByDiets, orderByName, orderByScore, filterCreate } from "../../redux/actions"; // Actions
 import Pagination from '../Pagination/Pagination'
 import { NavBar } from "../indexcomponents";
 import API from "../../api.json";
@@ -135,7 +135,7 @@ import style from './Home.module.css'
 const Home = () => {
     const [apiData, setApiData] = useState(API.results || []);
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const diets = useSelector(state => state.diets);
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -148,15 +148,15 @@ const Home = () => {
         setCurrentPage(pageNumber);
     };
 
-    useEffect(() => {
-        dispatch(getRecipes());
-        dispatch(getDiets());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(getRecipes());
+    //     dispatch(getDiets());
+    // }, [dispatch]);
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        dispatch(getRecipes());
-    };
+    // const handleClick = (e) => {
+    //     e.preventDefault();
+    //     dispatch(getRecipes());
+    // };
 
     const handlerFilterCreate = (e) => {
         // Filtrar apiData si es necesario
@@ -217,7 +217,7 @@ const Home = () => {
                         <option value="api">API</option>
                         <option value="created">Created</option>
                     </select>
-                    <button onClick={handleClick}>Refresh</button>
+                    {/* <button onClick={handleClick}>Refresh</button> */}
                 </div>
                 <Pagination
                     recipesPerPage={recipesPerPage}
