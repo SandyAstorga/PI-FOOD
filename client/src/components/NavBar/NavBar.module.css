@@ -56,7 +56,8 @@ button {
     border: none;
     border-radius: .5rem;
     cursor: pointer;
-    font-size: clamp(.9rem, 2.5vw, 1.1rem);
+    font-size: clamp(.7em, 2.5vw, 1rem);
+    margin: .2rem;
 }
 
 /* Estilos para dispositivos móviles */

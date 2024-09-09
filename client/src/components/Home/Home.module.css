@@ -1,7 +1,12 @@
 .home_container {
     background: #fff;
-    height: 100vh;
-    width: 80vw;
+    min-height: 100vh;
+    /* width: 80vw; */
+}
+/* Cards */
+.my_cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 /* Mi imagen de loading */
@@ -46,5 +51,16 @@
     }
     .home_container {
         width: 95vw;
+    }
+    .my_cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .my_cards {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 }
