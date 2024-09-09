@@ -19,6 +19,7 @@
     background-color: #e26d5c;
     height: 100px;
     position: relative;
+    position: relative;
 }
 .container_search {
     display: flex;
@@ -43,6 +44,9 @@
     padding: 0 !important;
 }
 .icon_menu{
+    display: none;
+}
+.responsive_menu{
     display: none;
 }
 .responsive_menu{
