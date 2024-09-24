@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import React from "react";
 // import { useEffect, useState } from "react"; //Hooks
 // import { useDispatch, useSelector } from "react-redux"; //Hooks
@@ -206,12 +207,12 @@ const Home = () => {
                         <option value="higher">Higher</option>
                         <option value="lower">Lower</option>
                     </select>
-                    <select className={style.select} onChange={handlerFilterDiets}>
+                    {/* <select className={style.select} onChange={handlerFilterDiets}>
                         <option value="all">Diets</option>
                         {diets?.map((d, index) => (
                             <option key={index} value={d.name}>{d.name}</option>
                         ))}
-                    </select>
+                    </select> */}
                     <select className={style.select} onChange={handlerFilterCreate}>
                         <option value="recipes">Recipes</option>
                         <option value="api">API</option>
