@@ -1,5 +1,6 @@
 .container_detail {
     width: 80vw;
+    background-color: #ffff;
 }
 
 .loading_image {
@@ -8,28 +9,36 @@
     border-radius: 20px;
 }
 
+.container_image {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+}
+
 .recipe_card__image {
     width: 300px;
     height: 250px;
     border-radius: 7px;
     box-shadow: 5px 5px 20px #e26d5c;
-    margin-left: -10%;
+    /* margin-left: -10%; */
 }
 
-.diets{
+.diets {
     color: #ffff;
-    display: inline-block;
     min-height: 23px;
     padding: 3px 8px;
     background-color: #333;
     border-radius: 5px;
     margin: 2px;
-    margin-top: 8rem;
+    list-style: none;
+    /* margin-top: 8rem; */
+
 }
 
 .score_bar {
-    width: 200px; 
-    height: 20px; 
+    width: 200px;
+    height: 20px;
     border-radius: 10px;
     margin-top: -15%;
     margin-left: 60%;
@@ -37,11 +46,11 @@
 
 .score_progress {
     height: 100%;
-    background-color: #e26d5c; 
+    background-color: #e26d5c;
     border-radius: 10px;
 }
 
-.titles{
+.titles {
     color: #e26d5c;
     background-color: #222222;
     border-radius: 8px;
@@ -64,7 +73,18 @@
     .container_detail {
         width: 1000px !important;
     }
+}
+
+@media screen and (max-width: 768px) {
+    .container_image {
+        flex-direction: column !important;
+    }
     .container_detail {
         width: 95vw;
+    }
+    .recipe_card__image {
+        width: 250px;
+        height: 200px;
+        margin-bottom: 1rem;
     }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,7 +10,7 @@ import style from "./Form.module.css"
 const Form = () => {
     const dispatch = useDispatch();
     const history = useHistory(); //redirigir
-    const diets = useSelector(state => state.diets)
+    // const diets = useSelector(state => state.diets)
 
     const [errors, setErrors] = useState({});
 
@@ -148,7 +149,7 @@ const Form = () => {
                         onChange={handleRange} />
                     {errors.healthScore && !form.healthScore && <li className={style.form_containerwarning}>{errors.healthScore}</li>}
                 </div>
-                <div>
+                {/* <div>
                     <label className={style.form_containerlabel}>Diets:* </label>
                     <div>
                         {diets?.map((d) => (
@@ -164,7 +165,7 @@ const Form = () => {
                         ))}
                     </div>
                     {errors.diets && form.diets.length === 0 && <div className={style.form_containerwarning}>{errors.diets}</div>}
-                </div>
+                </div> */}
                 <br />
                 <button disabled={isButtonDisabled} className={buttonClasses}>
                     Create Recipe

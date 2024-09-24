@@ -23,10 +23,11 @@ const validate = (input) => {
     }if (input.healthScore === "") {
         errors.healthScore = "Health Score is required";
         errors.hasErrors = true;
-    }if (!input.diets || input.diets.length === 0) {
-        errors.diets = "At least one diet must be selected";
-        errors.hasErrors = true;
-    } 
+    }
+    // if (!input.diets || input.diets.length === 0) {
+    //     errors.diets = "At least one diet must be selected";
+    //     errors.hasErrors = true;
+    // } 
 
     return errors
 }
